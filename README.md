@@ -6,6 +6,17 @@ Bu proje, **Varlık-İlişki (ER) Veritabanı Diyagramı** ve **Sistem Akış Ş
 
 ---
 
+## 👥 Ekip Üyeleri ve Rol Dağılımı
+
+| İsim | Rol | Sorumluluk |
+| :--- | :--- | :--- |
+| **Rasih Talha Sarıca** | Lider & Geliştirici | Koordinasyon, görev paylaşımı, GitHub düzeni, teslim kontrolü ve aktif geliştirme |
+| **Sümeyye Erbay** | Test / Kalite & Geliştirici | Test senaryoları, hata takibi, kalite kontrol, doğrulama ve aktif geliştirme |
+| **Berfin Dere** | Analist & Geliştirici | İhtiyaç analizi, kullanıcı hikayeleri, kabul kriterleri, kapsam yönetimi ve aktif geliştirme |
+| **Elanur Kılıç** | Dokümantasyon / Sunum & Geliştirici | Proje raporu, kullanıcı kılavuzu, README, sunum materyali, teslim paketi ve aktif geliştirme |
+
+---
+
 ## 🏛️ 1. ER Veritabanı Mimarisi ve Tablo İlişkileri
 
 Uygulama, tarayıcı üzerinde kalıcı (`localStorage`) çalışan ilişkisel bir veri tabanı simülasyon katmanı (`DatabaseService`) üzerine inşa edilmiştir:
