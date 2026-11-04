@@ -8,7 +8,7 @@
 **Proje Adı:** Etkileşimli Ders Deneyimi Panosu  
 **Proje Dönemi:** 1. Dönem (4 Hafta)  
 **Teslim Tarihi:** 2026  
-**Repository:** https://github.com/sumeyye-61/Yazilim-Gelistirme-Proje1
+**Repository:** https://github.com/rtsar07/YG-Proje1-Grup5
 
 ---
 
