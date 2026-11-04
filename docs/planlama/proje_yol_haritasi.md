@@ -116,7 +116,7 @@ flowchart TD
 * **Hedef:** Rolünüz olan 'Dokümantasyon / Sunum' çıktısını eksiksiz hazırlamak.
 * **Yapay Zekâya Verilecek Prompt:**
 > "Proje 1 için teslim dokümantasyonunu hazırla:
-> 1. `dosc/` klasörüne akademik formatta detaylı bir Proje Raporu (Giriş, İhtiyaç Analizi, Sistem Mimarisi, Kullanıcı Senaryoları, Ekip Rol Dağılımı ve Katkılar, Sonuç).
+> 1. `docs/` klasörüne akademik formatta detaylı bir Proje Raporu (Giriş, İhtiyaç Analizi, Sistem Mimarisi, Kullanıcı Senaryoları, Ekip Rol Dağılımı ve Katkılar, Sonuç).
 > 2. Son kullanıcı için adım adım Kullanıcı Kılavuzu (Ekran görüntüleri açıklamalarıyla birlikte).
 > 3. `presentation/` klasörüne slayt sunumu için hazır konuşma metni ve sunum taslağı.
 > 4. `README.md` dosyasını son ekran görüntüleri, özellikler ve çalıştırma adımlarıyla güncelle."

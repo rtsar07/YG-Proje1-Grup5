@@ -126,3 +126,42 @@ Uygulama tamamen saf (Vanilla) HTML5, CSS3 ve modern ES6+ JavaScript ile gelişt
 
 ### Demo Hesap:
 Giriş ekranında bulunan **"Demo Öğrenci ile Hemen Keşfet"** butonuna basarak, önceden yüklenmiş zengin ders, kart, görev, sınav ve not verileriyle sistemi hemen test edebilirsiniz.
+
+---
+
+## 📁 5. Proje Klasör Yapısı
+
+```
+YG-Proje1-Grup5/
+├── docs/                        # Proje dokümantasyonu ve teslim kanıtları
+│   ├── proje_raporu.md          # Akademik Proje Raporu
+│   ├── kullanici_kilavuzu.md    # Kullanıcı Kılavuzu
+│   ├── wireframe_ekran_akisi.md # 1. Hafta: Sayfa haritası ve wireframe
+│   ├── responsive_tasarim_belgesi.md # 2. Hafta: Responsive tasarım doğrulama
+│   ├── screenshots/             # Masaüstü ve mobil ekran görüntüleri
+│   └── planlama/                # SDLC rehberleri, takip listesi ve şartnameler
+│       ├── proje_yol_haritasi.md
+│       ├── Proje_1_TakipListesi_OgrenciBilgilendirme.xlsx
+│       ├── Proje_1_Etkilesimli_Ders_Deneyimi_Panosu_Teknik_Dokuman.docx
+│       ├── Yazilim_Gelistirme_Dersi_Ogrenci_Bilgilendirme_Rehberi.docx
+│       ├── Yazilim_Gelistirme_Dersi_Ogrenci_Bilgilendirme_Sunumu_v2.pptx
+│       └── gorseller/           # Referans mimari ve akış çizimleri
+├── presentation/                # Sunum materyalleri
+│   └── sunum_taslagi.md
+├── index.html                   # Web uygulaması arayüzü
+├── script.js                    # Dinamik uygulama mantığı ve veri tabanı katmanı
+├── style.css                    # Responsive stiller, animasyonlar ve tema sistemi
+├── README.md                    # Proje ana tanıtımı ve kullanım kılavuzu
+└── .gitignore                   # Git dışlama kuralları
+```
+
+---
+
+## 📚 6. Dokümantasyon Bağlantıları
+
+- 📄 [Proje Raporu](docs/proje_raporu.md) — İhtiyaç analizi, sistem mimarisi ve test sonuçları
+- 📖 [Kullanıcı Kılavuzu](docs/kullanici_kilavuzu.md) — Adım adım kullanım rehberi
+- 📐 [Wireframe ve Ekran Akışı](docs/wireframe_ekran_akisi.md) — 1. Hafta sistem ve arayüz tasarımı
+- 📱 [Responsive Tasarım Doğrulama](docs/responsive_tasarim_belgesi.md) — 2. Hafta mobil uyumluluk ve kanıtlar
+- 🎤 [Sunum Taslağı](presentation/sunum_taslagi.md) — Slayt planı ve konuşma metni
+- 📋 [Proje Yol Haritası](docs/planlama/proje_yol_haritasi.md) — SDLC geliştirme adımları

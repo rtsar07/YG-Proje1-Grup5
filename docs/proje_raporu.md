@@ -128,18 +128,21 @@ Uygulama tamamen **istemci tarafında (client-side)** çalışan tek sayfalı bi
 ### 3.2 Dosya Yapısı
 
 ```
-proje/
-├── src/
-│   ├── index.html       # Ana HTML iskeleti — tüm bölümler ve modaller
-│   ├── style.css        # CSS değişkenleri, tema sistemi, bileşen stilleri
-│   ├── data.js          # Veri modeli, mock data ve localStorage CRUD katmanı
-│   └── app.js           # Uygulama mantığı — auth, modüller, render fonksiyonları
-├── dosc/
-│   ├── proje_raporu.md  # Bu rapor
-│   └── kullanici_kilavuzu.md
-├── presentation/
+YG-Proje1-Grup5/
+├── docs/                        # Proje dokümantasyonu ve raporlar
+│   ├── proje_raporu.md          # Bu akademik rapor
+│   ├── kullanici_kilavuzu.md    # Kullanıcı kılavuzu
+│   ├── wireframe_ekran_akisi.md # 1. Hafta sayfa haritası ve wireframe
+│   ├── responsive_tasarim_belgesi.md # 2. Hafta responsive doğrulama
+│   ├── screenshots/             # Masaüstü ve mobil ekran görüntüleri
+│   └── planlama/                # Yönergeler, teknik şartname ve yol haritası
+├── presentation/                # Sunum materyalleri
 │   └── sunum_taslagi.md
-└── README.md
+├── index.html                   # Ana uygulama sayfası
+├── script.js                    # Uygulama mantığı ve localStorage yönetimi
+├── style.css                    # Tema sistemi ve responsive stiller
+├── README.md                    # Proje ana tanıtım ve rehber dokümanı
+└── .gitignore                   # Git dışlama kuralları
 ```
 
 ### 3.3 Kullanılan Teknolojiler
