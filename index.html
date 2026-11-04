@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduTrack - Etkileşimli Ders Deneyimi ve Takip Panosu</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- CSS Dosyası -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================================================== -->
+  <!-- 1. AUTH SCREEN (GİRİŞ & KAYIT OL)                    -->
+  <!-- ==================================================== -->
+  <div id="authScreen" class="auth-screen">
+    <div class="auth-wrapper">
+      <!-- Sol Görsel Tanıtım Paneli -->
+      <div class="auth-hero">
+        <div class="hero-brand">
+          <div class="brand-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <span class="brand-name">EduTrack</span>
+        </div>
+        <div class="hero-content">
+          <h2>Akademik Başarını <span class="highlight">Birlikte Yönetelim</span></h2>
+          <p>Haftalık öğrenme kartları, görev takip sistemi, dinamik sınav ortalaması ve kişisel çalışma notları ile tüm ders sürecin kontrolün altında.</p>
+          
+          <div class="hero-features">
+            <div class="feature-item">
+              <i class="fa-solid fa-check-double"></i>
+              <span>Anlık Görev ve İlerleme Takibi (% İlerleme)</span>
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-calculator"></i>
+              <span>Ders Ağırlıklı Sınav & GNO Hesaplayıcı</span>
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-layer-group"></i>
+              <span>Haftalık Ders Kartları & Ders Programı</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-footer">
+          <p>© 2026 EduTrack Platformu • ER Diyagramı Tabanlı Mimari</p>
+        </div>
+      </div>
+
+      <!-- Sağ Form Paneli -->
+      <div class="auth-card">
+        <!-- Auth Başlık -->
+        <div class="auth-header">
+          <div class="mobile-logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>EduTrack</span>
+          </div>
+          <h3 id="authTitle">Öğrenci Girişi</h3>
+          <p id="authSubtitle">Lütfen hesabınıza giriş yaparak derslerinizi takip edin.</p>
+        </div>
+
+        <!-- Auth Sekmeleri (Giriş / Kayıt) -->
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab-btn active" id="tabLoginBtn" onclick="switchAuthTab('login')">
+            <i class="fa-solid fa-right-to-bracket"></i> Giriş Yap
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabRegisterBtn" onclick="switchAuthTab('register')">
+            <i class="fa-solid fa-user-plus"></i> Kayıt Ol
+          </button>
+        </div>
+
+        <!-- Giriş Formu -->
+        <form id="loginForm" class="auth-form" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="loginEmail"><i class="fa-regular fa-envelope"></i> E-Posta Adresi</label>
+            <input type="email" id="loginEmail" placeholder="ornek@universite.edu.tr" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword"><i class="fa-solid fa-lock"></i> Şifre</label>
+            <div class="password-input-wrap">
+              <input type="password" id="loginPassword" placeholder="••••••••" required>
+              <button type="button" class="toggle-password" onclick="togglePasswordVisibility('loginPassword')">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Sisteme Giriş Yap
+          </button>
+
+          <div class="auth-divider">
+            <span>veya tek tıkla test edin</span>
+          </div>
+
+          <button type="button" class="btn btn-demo btn-block" onclick="loginDemoUser()">
+            <i class="fa-solid fa-bolt"></i> Demo Öğrenci ile Hemen Keşfet
+          </button>
+        </form>
+
+        <!-- Kayıt Formu -->
+        <form id="registerForm" class="auth-form hidden" onsubmit="handleRegister(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="regAd"><i class="fa-regular fa-user"></i> Ad</label>
+              <input type="text" id="regAd" placeholder="Ahmet" required>
+            </div>
+            <div class="form-group">
+              <label for="regSoyad"><i class="fa-regular fa-user"></i> Soyad</label>
+              <input type="text" id="regSoyad" placeholder="Yılmaz" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="regEmail"><i class="fa-regular fa-envelope"></i> E-Posta Adresi</label>
+            <input type="email" id="regEmail" placeholder="ahmet.yilmaz@universite.edu.tr" required>
+          </div>
+          <div class="form-group">
+            <label for="regPassword"><i class="fa-solid fa-lock"></i> Şifre Belirleyin</label>
+            <div class="password-input-wrap">
+              <input type="password" id="regPassword" placeholder="En az 6 karakter" minlength="6" required>
+              <button type="button" class="toggle-password" onclick="togglePasswordVisibility('regPassword')">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-user-check"></i> Hesap Oluştur ve Başla
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================== -->
+  <!-- 2. MAIN APPLICATION (ÖĞRENCİ PANELİ VE MODÜLLERİ)    -->
+  <!-- ==================================================== -->
+  <div id="mainApp" class="app-layout hidden">
+    
+    <!-- Kenar Çubuğu (Sidebar) -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-logo">
+          <div class="brand-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <span class="brand-title">EduTrack</span>
+        </div>
+        <button class="mobile-close-btn" onclick="toggleSidebar()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Kullanıcı Mini Profil Kartı -->
+      <div class="sidebar-profile">
+        <div class="profile-avatar" id="sidebarAvatar">AY</div>
+        <div class="profile-info">
+          <h4 id="sidebarStudentName">Ahmet Yılmaz</h4>
+          <span id="sidebarStudentEmail">ahmet@edu.tr</span>
+        </div>
+      </div>
+
+      <!-- Navigasyon Menüsü -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">GENEL BAKIŞ</div>
+        <button class="nav-item active" onclick="navigateTo('dashboard')">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Ana Gösterge Paneli</span>
+        </button>
+        
+        <div class="nav-section-label">DERS & ÖĞRENME</div>
+        <button class="nav-item" onclick="navigateTo('cards')">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Haftalık Kartlar & Görevler</span>
+          <span class="badge badge-primary" id="pendingTasksBadge">0</span>
+        </button>
+        <button class="nav-item" onclick="navigateTo('schedule')">
+          <i class="fa-solid fa-calendar-week"></i>
+          <span>Haftalık Ders Programı</span>
+        </button>
+
+        <div class="nav-section-label">AKADEMİK & NOTLAR</div>
+        <button class="nav-item" onclick="navigateTo('exams')">
+          <i class="fa-solid fa-calculator"></i>
+          <span>Sınav Takibi & Ortalama</span>
+        </button>
+        <button class="nav-item" onclick="navigateTo('notes')">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>Kişisel Çalışma Notları</span>
+          <span class="badge badge-secondary" id="notesCountBadge">0</span>
+        </button>
+      </nav>
+
+      <!-- Sidebar Alt İşlemler (Tema ve Çıkış) -->
+      <div class="sidebar-footer">
+        <div class="theme-switch-row">
+          <span class="theme-label"><i class="fa-solid fa-moon"></i> Gece Modu</span>
+          <label class="switch">
+            <input type="checkbox" id="themeToggleCheckbox" onchange="toggleTheme()">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <button class="btn btn-outline-danger btn-block" onclick="handleLogout()">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Güvenli Çıkış
+        </button>
+      </div>
+    </aside>
+
+    <!-- Ana İçerik Alanı -->
+    <div class="main-wrapper">
+      
+      <!-- Üst Header Bar -->
+      <header class="app-header">
+        <div class="header-left">
+          <button class="menu-toggle-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="header-breadcrumb">
+            <span class="breadcrumb-root">EduTrack</span>
+            <i class="fa-solid fa-chevron-right separator"></i>
+            <span class="breadcrumb-current" id="currentViewTitle">Ana Gösterge Paneli</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Hızlı İlerleme Rozeti -->
+          <div class="header-progress-chip" title="Genel Görev Tamamlama Başarısı">
+            <i class="fa-solid fa-bullseye"></i>
+            <span>İlerleme:</span>
+            <strong id="headerProgressPct">0%</strong>
+          </div>
+
+          <!-- Tema Değiştirme Butonu -->
+          <button class="icon-btn theme-quick-toggle" onclick="toggleTheme()" title="Temayı Değiştir">
+            <i class="fa-solid fa-circle-half-stroke"></i>
+          </button>
+
+          <!-- Kullanıcı Dropdown -->
+          <div class="header-user">
+            <div class="avatar-circle" id="headerAvatar">AY</div>
+            <div class="user-meta">
+              <span class="user-name" id="headerUserName">Ahmet Yılmaz</span>
+              <span class="user-role">Öğrenci</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Sayfa İçerik Taşıyıcısı (Tabs) -->
+      <main class="page-content">
+
+        <!-- ============================================== -->
+        <!-- VIEW 1: DASHBOARD (ANA GÖSTERGE PANELİ)         -->
+        <!-- ============================================== -->
+        <section id="view-dashboard" class="view-section active">
+          
+          <!-- Hoşgeldin Banner -->
+          <div class="welcome-banner">
+            <div class="welcome-text">
+              <h2>Hoş Geldin, <span id="welcomeUserName">Öğrenci</span> 👋</h2>
+              <p>Dönem hedeflerine doğru ilerliyorsun. İşte bugünkü akademik özetin ve yapılması gerekenler:</p>
+            </div>
+            <div class="welcome-stats">
+              <div class="mini-stat">
+                <span class="mini-label">Genel Başarı Ortalaması (GNO)</span>
+                <span class="mini-value text-accent" id="dashGpaValue">0.00 / 4.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metrik Kartları Grid -->
+          <div class="metrics-grid">
+            <!-- Kart 1: Genel İlerleme -->
+            <div class="metric-card progress-metric-card">
+              <div class="metric-header">
+                <div>
+                  <span class="metric-title">Genel Tamamlanma Yüzdesi</span>
+                  <p class="metric-sub">Tüm ders görevlerinin başarı oranı</p>
+                </div>
+                <div class="metric-icon bg-indigo">
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+              </div>
+              <div class="progress-container">
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar-fill" id="dashOverallProgressBar" style="width: 0%"></div>
+                </div>
+                <div class="progress-info-row">
+                  <span id="dashCompletedTasksCount">0/0 Görev Tamamlandı</span>
+                  <span class="progress-percentage" id="dashProgressPercentageText">0%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kart 2: Kayıtlı Dersler -->
+            <div class="metric-card">
+              <div class="metric-header">
+                <div>
+                  <span class="metric-title">Kayıtlı Dersler</span>
+                  <h3 class="metric-number" id="dashCourseCount">0</h3>
+                </div>
+                <div class="metric-icon bg-blue">
+                  <i class="fa-solid fa-book-open"></i>
+                </div>
+              </div>
+              <span class="metric-footer-text"><i class="fa-solid fa-circle-check text-success"></i> Aktif akademik dönem</span>
+            </div>
+
+            <!-- Kart 3: Bekleyen Görevler -->
+            <div class="metric-card">
+              <div class="metric-header">
+                <div>
+                  <span class="metric-title">Devam Eden Görevler</span>
+                  <h3 class="metric-number text-warning" id="dashPendingTasksCount">0</h3>
+                </div>
+                <div class="metric-icon bg-amber">
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+              </div>
+              <span class="metric-footer-text" id="dashCompletedTasksSummary">0 görev tamamlandı</span>
+            </div>
+
+            <!-- Kart 4: Sınav Sayısı -->
+            <div class="metric-card">
+              <div class="metric-header">
+                <div>
+                  <span class="metric-title">Girilen Sınavlar</span>
+                  <h3 class="metric-number text-teal" id="dashExamsCount">0</h3>
+                </div>
+                <div class="metric-icon bg-teal">
+                  <i class="fa-solid fa-award"></i>
+                </div>
+              </div>
+              <span class="metric-footer-text" id="dashAverageScoreSummary">Sınav Ortalaması: 0.0</span>
+            </div>
+          </div>
+
+          <!-- İkili Grid: Ders Bazlı İlerleme & Bugünün Programı -->
+          <div class="dashboard-split-grid">
+            
+            <!-- Sol: Ders Bazlı İlerleme Çubukları -->
+            <div class="card panel-card">
+              <div class="card-header">
+                <div class="card-header-title">
+                  <i class="fa-solid fa-bars-progress text-indigo"></i>
+                  <h3>Ders Bazlı Görev İlerlemesi</h3>
+                </div>
+                <button class="btn btn-sm btn-ghost" onclick="navigateTo('cards')">
+                  Tümünü Gör <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="card-body">
+                <div id="dashCourseProgressList" class="course-progress-list">
+                  <!-- JS dinamik dolduracak -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Sağ: Bugünün Ders Programı & Hızlı Notlar -->
+            <div class="card panel-card">
+              <div class="card-header">
+                <div class="card-header-title">
+                  <i class="fa-solid fa-calendar-day text-teal"></i>
+                  <h3>Bugünün Dersleri (<span id="todayDayName">Pazartesi</span>)</h3>
+                </div>
+                <button class="btn btn-sm btn-ghost" onclick="navigateTo('schedule')">
+                  Tüm Program <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="card-body">
+                <div id="todayScheduleList" class="schedule-mini-list">
+                  <!-- JS dinamik dolduracak -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Yaklaşan Görevler Listesi (Dashboard Hızlı Tamamlama) -->
+          <div class="card panel-card mt-4">
+            <div class="card-header">
+              <div class="card-header-title">
+                <i class="fa-solid fa-list-check text-primary"></i>
+                <h3>Öncelikli Görevler</h3>
+              </div>
+              <span class="subtext">Tek tıkla tamamlayıp ilerleme yüzdenizi artırabilirsiniz</span>
+            </div>
+            <div class="card-body">
+              <div id="dashPriorityTasksList" class="priority-tasks-list">
+                <!-- JS dinamik dolduracak -->
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VIEW 2: HAFTALIK KARTLAR & GÖREVLER             -->
+        <!-- ============================================== -->
+        <section id="view-cards" class="view-section">
+          
+          <div class="page-title-bar">
+            <div>
+              <h2>Haftalık Öğrenme Kartları & Görev Takibi</h2>
+              <p>Derslerin haftalık modüllerini inceleyin, görevleri tamamlayarak anlık ilerleme yüzdenizi artırın.</p>
+            </div>
+            <div class="page-action-group">
+              <button class="btn btn-primary" onclick="openModal('modalNewTask')">
+                <i class="fa-solid fa-plus"></i> Yeni Görev / Kart Ekle
+              </button>
+            </div>
+          </div>
+
+          <!-- Filtreleme Çubuğu -->
+          <div class="filter-card">
+            <div class="filter-row">
+              <div class="filter-item">
+                <label for="filterCourseSelect"><i class="fa-solid fa-filter"></i> Dersi Filtrele:</label>
+                <select id="filterCourseSelect" class="form-select" onchange="renderWeeklyCards()">
+                  <option value="ALL">Tüm Dersler</option>
+                  <!-- JS dolduracak -->
+                </select>
+              </div>
+
+              <div class="filter-item">
+                <label for="filterWeekSelect"><i class="fa-solid fa-calendar-week"></i> Haftayı Filtrele:</label>
+                <select id="filterWeekSelect" class="form-select" onchange="renderWeeklyCards()">
+                  <option value="ALL">Tüm Haftalar (Hafta 1 - 14)</option>
+                  <option value="1">1. Hafta</option>
+                  <option value="2">2. Hafta</option>
+                  <option value="3">3. Hafta</option>
+                  <option value="4">4. Hafta</option>
+                  <option value="5">5. Hafta</option>
+                  <option value="6">6. Hafta</option>
+                  <option value="7">7. Hafta</option>
+                  <option value="8">8. Hafta</option>
+                </select>
+              </div>
+
+              <div class="filter-item">
+                <label for="filterTaskStatus"><i class="fa-solid fa-list-check"></i> Görev Durumu:</label>
+                <select id="filterTaskStatus" class="form-select" onchange="renderWeeklyCards()">
+                  <option value="ALL">Tümü (Tamamlanan & Kalan)</option>
+                  <option value="pending">Yalnızca Devam Edenler</option>
+                  <option value="completed">Yalnızca Tamamlananlar</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Haftalık Kartlar Grid Konteyneri -->
+          <div id="weeklyCardsContainer" class="cards-grid">
+            <!-- JS Dinamik Dolduracak -->
+          </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VIEW 3: HAFTALIK DERS PROGRAMI (TAKVİM)         -->
+        <!-- ============================================== -->
+        <section id="view-schedule" class="view-section">
+          <div class="page-title-bar">
+            <div>
+              <h2>Haftalık Ders Programı</h2>
+              <p>Haftalık ders saatlerinizi, günleri ve derslik konumlarını çizelge üzerinden takip edin.</p>
+            </div>
+            <div class="page-action-group">
+              <button class="btn btn-secondary" onclick="openModal('modalNewCourse')">
+                <i class="fa-solid fa-plus"></i> Yeni Ders / Program Ekle
+              </button>
+            </div>
+          </div>
+
+          <!-- Ders Programı Tablo / Grid Görünümü -->
+          <div class="schedule-table-wrap card">
+            <div class="schedule-days-grid" id="scheduleDaysGrid">
+              <!-- Günlük kolonlar JS ile doldurulacak -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VIEW 4: SINAV TAKİBİ & ORTALAMA MODÜLÜ          -->
+        <!-- ============================================== -->
+        <section id="view-exams" class="view-section">
+          
+          <div class="page-title-bar">
+            <div>
+              <h2>Sınav Takibi ve Ortalama Hesaplama</h2>
+              <p>Ders bazlı vize, final ve proje notlarınızı ağırlık yüzdelerine göre hesaplayın ve harf notunuzu görün.</p>
+            </div>
+            <div class="page-action-group">
+              <button class="btn btn-primary" onclick="openModal('modalNewExam')">
+                <i class="fa-solid fa-plus"></i> Yeni Sınav Notu Ekle
+              </button>
+            </div>
+          </div>
+
+          <!-- Genel Akademik Başarı Kartı (GNO / GPA) -->
+          <div class="academic-summary-bar">
+            <div class="gpa-badge-card">
+              <span class="gpa-title">Dönem Genel Not Ortalaması (GNO)</span>
+              <div class="gpa-score">
+                <strong id="examGpaDisplay">0.00</strong>
+                <span class="max-score">/ 4.00</span>
+              </div>
+              <p class="gpa-detail" id="gpaStatusNote">Tüm derslerinizin kredili ağırlıklı ortalaması</p>
+            </div>
+
+            <div class="exam-stats-pills">
+              <div class="stat-pill">
+                <span class="pill-title">Toplam Sınav</span>
+                <span class="pill-val" id="totalExamPill">0</span>
+              </div>
+              <div class="stat-pill">
+                <span class="pill-title">Geçilen Dersler</span>
+                <span class="pill-val text-success" id="passedCoursesPill">0</span>
+              </div>
+              <div class="stat-pill">
+                <span class="pill-title">Kalan / Riskli Dersler</span>
+                <span class="pill-val text-danger" id="failedCoursesPill">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ders Bazlı Sınav Kartları ve Hesaplama Tabloları -->
+          <div id="courseExamCardsContainer" class="course-exams-stack">
+            <!-- JS Dinamik Dolduracak -->
+          </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VIEW 5: KİŞİSEL ÇALIŞMA NOTLARI                -->
+        <!-- ============================================== -->
+        <section id="view-notes" class="view-section">
+          
+          <div class="page-title-bar">
+            <div>
+              <h2>Kişisel Notlar ve Hatırlatıcılar</h2>
+              <p>Akademik hedeflerinizi, çalışma stratejilerinizi ve önemli hatırlatıcılarınızı kaydedin.</p>
+            </div>
+            <div class="page-action-group">
+              <button class="btn btn-primary" onclick="openModal('modalNewNote')">
+                <i class="fa-solid fa-plus"></i> Yeni Not Oluştur
+              </button>
+            </div>
+          </div>
+
+          <!-- Not Arama ve Filtreleme -->
+          <div class="notes-filter-bar">
+            <div class="search-input-wrap">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="noteSearchInput" placeholder="Not başlığında veya içeriğinde ara..." oninput="renderNotes()">
+            </div>
+            <div class="category-tabs" id="noteCategoryTabs">
+              <button class="cat-pill active" onclick="filterNotesCategory('ALL')">Tümü</button>
+              <button class="cat-pill" onclick="filterNotesCategory('Genel')">Genel</button>
+              <button class="cat-pill" onclick="filterNotesCategory('Sınav Hazırlığı')">Sınav Hazırlığı</button>
+              <button class="cat-pill" onclick="filterNotesCategory('Ödev/Proje')">Ödev/Proje</button>
+              <button class="cat-pill" onclick="filterNotesCategory('Önemli Hatırlatıcı')">Önemli</button>
+            </div>
+          </div>
+
+          <!-- Notlar Grid -->
+          <div id="notesContainer" class="notes-grid">
+            <!-- JS Dinamik Dolduracak -->
+          </div>
+
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ==================================================== -->
+  <!-- 3. MODALLAR                                          -->
+  <!-- ==================================================== -->
+
+  <!-- Modal: Yeni Görev / Kart Ekle -->
+  <div id="modalNewTask" class="modal-backdrop hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-list-check text-primary"></i> Yeni Görev / Öğrenme Kartı Ekle</h3>
+        <button class="modal-close" onclick="closeModal('modalNewTask')">&times;</button>
+      </div>
+      <form id="formNewTask" onsubmit="handleCreateTask(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="taskCourseId">İlgili Ders *</label>
+            <select id="taskCourseId" class="form-select" required>
+              <!-- JS dinamik dolduracak -->
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="taskWeekNo">Hafta No *</label>
+              <input type="number" id="taskWeekNo" min="1" max="16" value="1" required>
+            </div>
+            <div class="form-group">
+              <label for="taskType">Görev Türü *</label>
+              <select id="taskType" class="form-select" required>
+                <option value="Ödev">Ödev</option>
+                <option value="Okuma">Okuma & Makale</option>
+                <option value="Quiz">Quiz / Test</option>
+                <option value="Proje">Proje Çalışması</option>
+                <option value="Laboratuvar">Laboratuvar</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="taskTitle">Görev Başlığı *</label>
+            <input type="text" id="taskTitle" placeholder="Örn: 3. Hafta SQL Sorguları Alıştırması" required>
+          </div>
+          <div class="form-group">
+            <label for="taskContent">Açıklama / Kart İçeriği</label>
+            <textarea id="taskContent" rows="3" placeholder="Görevin detayları, kaynak linkler veya notlar..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modalNewTask')">Vazgeç</button>
+          <button type="submit" class="btn btn-primary">Görevi Kaydet</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Yeni Sınav Notu Ekle -->
+  <div id="modalNewExam" class="modal-backdrop hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-calculator text-primary"></i> Sınav Notu Ekle</h3>
+        <button class="modal-close" onclick="closeModal('modalNewExam')">&times;</button>
+      </div>
+      <form id="formNewExam" onsubmit="handleCreateExam(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="examCourseId">Ders Seçin *</label>
+            <select id="examCourseId" class="form-select" required>
+              <!-- JS dinamik dolduracak -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="examType">Sınav / Değerlendirme Türü *</label>
+            <select id="examType" class="form-select" required>
+              <option value="Vize">Vize Sınavı</option>
+              <option value="Final">Final Sınavı</option>
+              <option value="Quiz">Kısa Sınav (Quiz)</option>
+              <option value="Proje">Dönem Projesi</option>
+              <option value="Ödev">Ödev Notu</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="examScore">Alınan Not (0 - 100) *</label>
+              <input type="number" id="examScore" min="0" max="100" placeholder="Örn: 85" required>
+            </div>
+            <div class="form-group">
+              <label for="examWeight">Ağırlık Yüzdesi (%) *</label>
+              <input type="number" id="examWeight" min="1" max="100" placeholder="Örn: 40" required>
+            </div>
+          </div>
+          <small class="text-muted">İpucu: Bir dersin vize (%40) ve final (%60) gibi toplam ağırlığı %100 olduğunda kesin harf notu hesaplanır.</small>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modalNewExam')">Vazgeç</button>
+          <button type="submit" class="btn btn-primary">Notu Kaydet</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Yeni Kişisel Not Ekle -->
+  <div id="modalNewNote" class="modal-backdrop hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-pen-to-square text-primary"></i> Kişisel Not Oluştur</h3>
+        <button class="modal-close" onclick="closeModal('modalNewNote')">&times;</button>
+      </div>
+      <form id="formNewNote" onsubmit="handleCreateNote(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="noteCategory">Kategori *</label>
+            <select id="noteCategory" class="form-select" required>
+              <option value="Genel">Genel</option>
+              <option value="Sınav Hazırlığı">Sınav Hazırlığı</option>
+              <option value="Ödev/Proje">Ödev/Proje</option>
+              <option value="Önemli Hatırlatıcı">Önemli Hatırlatıcı</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="noteTitle">Not Başlığı *</label>
+            <input type="text" id="noteTitle" placeholder="Örn: Veritabanı Normalizasyon Kuralları" required>
+          </div>
+          <div class="form-group">
+            <label for="noteContent">Not Detayları *</label>
+            <textarea id="noteContent" rows="4" placeholder="Çalışma notlarınızı buraya yazın..." required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modalNewNote')">Vazgeç</button>
+          <button type="submit" class="btn btn-primary">Notu Kaydet</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Yeni Ders ve Program Ekle -->
+  <div id="modalNewCourse" class="modal-backdrop hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-book-bookmark text-primary"></i> Yeni Ders & Program Ekle</h3>
+        <button class="modal-close" onclick="closeModal('modalNewCourse')">&times;</button>
+      </div>
+      <form id="formNewCourse" onsubmit="handleCreateCourse(event)">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="courseCode">Ders Kodu *</label>
+              <input type="text" id="courseCode" placeholder="Örn: BLM301" required>
+            </div>
+            <div class="form-group">
+              <label for="courseCredit">Kredi (AKTS) *</label>
+              <input type="number" id="courseCredit" min="1" max="15" value="5" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="courseName">Ders Adı *</label>
+            <input type="text" id="courseName" placeholder="Örn: Algoritmalar ve Veri Yapıları" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="courseDay">Ders Günü *</label>
+              <select id="courseDay" class="form-select" required>
+                <option value="Pazartesi">Pazartesi</option>
+                <option value="Salı">Salı</option>
+                <option value="Çarşamba">Çarşamba</option>
+                <option value="Perşembe">Perşembe</option>
+                <option value="Cuma">Cuma</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="courseRoom">Derslik / Amfi *</label>
+              <input type="text" id="courseRoom" placeholder="Örn: Amfi-2 / D-304" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="courseStart">Başlangıç Saati *</label>
+              <input type="time" id="courseStart" value="09:00" required>
+            </div>
+            <div class="form-group">
+              <label for="courseEnd">Bitiş Saati *</label>
+              <input type="time" id="courseEnd" value="11:50" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modalNewCourse')">Vazgeç</button>
+          <button type="submit" class="btn btn-primary">Dersi Ekle</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Bildirim Konteyneri -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- JavaScript Dosyası -->
+  <script src="script.js"></script>
+</body>
+</html>
