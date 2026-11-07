@@ -1,49 +1,64 @@
 # Test Planı - Proje 1 (Sümeyye Erbay)
 
 ## Kapsam
-Proje 1 teknik dokümanındaki zorunlu özellikler test edilir.
-Test ortamı: Firefox, `index.html` yerel olarak açıldı. Demo hesabı ve kendi hesabımla denendi.
-s
+Proje 1 teknik dokümanındaki zorunlu gereksinimler (bölüm 4, 7, 8, 12) test edilmiştir.
+Ekstra özellikler ve öneriler ayrı etiketle işaretlenmiştir.
+
+Tür açıklamaları:
+- **Zorunlu:** Teknik dokümanda açıkça istenen özellik.
+- **Ekstra:** Ekip tarafından eklenmiş, dokümanda zorunlu olmayan özellik. Hatalar yine de bildirilir.
+- **Öneri:** Dokümanda istenmeyen, iyileştirme olarak yazılan konu.
+
+Test ortamı: Firefox, `index.html` yerel olarak açıldı, Demo Öğrenci hesabı ve kişisel hesapla denendi. Mobil ve tablet testleri Responsive Design Mode (Ctrl+Shift+M) ile yapıldı.
+
 ## Test Sonuçları
 
-| No | Test | Beklenen | Sonuç | Not |
-|---|---|---|---|---|
-| T-01 | Haftalık ders kartları | Kartlarda başlık ve açıklama olmalı | Geçti | |
-| T-02 | Görev işaretleme, ilerleme güncellemesi | Kart ve genel yüzde değişmeli | Geçti | |
-| T-03 | Hafta filtresi | Seçilen haftanın kartları gelmeli | Geçti | |
-| T-04 | Görev durumu filtresi | Yalnızca seçilen durumdaki görevler gelmeli | Geçti | |
-| T-05 | Kelime ile arama | Yazılan kelimeye uyan görevler gelmeli | Kaldı | Görev listesinde arama kutusu yok |
-| T-06 | Tema değişimi | Açık/koyu tema değişmeli | Geçti | |
-| T-07 | Tema kalıcılığı | Yenilemeden sonra tema korunmalı | Geçti | |
-| T-08 | Görev durumu kalıcılığı | Yenilemeden sonra durum korunmalı | Geçti | |
-| T-09 | Responsive görünüm | Taşma olmamalı, kontroller kullanılabilmeli | Geçti | Tarayıcı daraltılarak test edildi, gerçek telefonda denenmedi |
-| T-10 | Yeni kart/görev ekleme | Kart ve görev eklenebilmeli | Geçti | |
-| T-11 | Boş form kontrolü | Boş başlıkla kayıt engellenmeli | Geçti | |
-| T-12 | İlerleme tutarlılığı | Üst bar ve gösterge paneli aynı yüzdeyi göstermeli | Geçti | %45 her iki yerde aynı |
-| T-13 | Yanlış giriş bilgileri | Giriş engellenmeli, hata mesajı çıkmalı | Geçti | Yanlış e-postada "kayıtlı öğrenci bulunamadı" mesajı çıkıyor, e-posta kayıtlı mı bilgisi veriyor (güvenlik notu) |
-| T-14 | Ana gösterge paneli | Genel ve ders bazlı ilerleme görünmeli | Geçti | Genel yüzde, üst bar ve görev sayısı uyumlu |
-| T-14a | Ders bazlı ilerleme | Yüzde görevlerle uyumlu olmalı | Geçti | BLM301 %75 doğrulandı |
-| T-15 | Klavye ile gezinme | Tab ile öğelere ulaşılmalı, Enter ile çalışmalı | Kısmen | Tab ile gezinme var. Enter ve Esc davranışı kontrol edilmedi, geri dönüş yok |
-| T-16 | Gece modunda okunabilirlik | Yazılar rahat okunmalı | Geçti | |
-| T-17 | İki filtreyi birlikte kullanma | Her iki koşulu sağlayan kartlar gelmeli | Geçti | Ders filtresi yalnızca tek seçim, bkz. T-25 |
-| T-18 | Kayıt, giriş ve veri kalıcılığı | Yeni hesap açılmalı, veriler çıkış-giriş sonrası korunmalı | Geçti | Not ve görev eklendi, çıkış-giriş sonrası duruyordu |
-| T-19 | GNO ve harf notu hesabı | Doğru hesaplanmalı, yöntem açıklanmalı | Kısmen | Vize %50 + final %50 ile 75, GNO 2.50 ile tutarlı. Kredi ağırlığı ve eşleme tablosu doğrulanmadı. Yöntem açıklaması yok |
-| T-20 | Kart ve görev silme | Silinebilmeli (zorunluysa) | Kaldı | Oluşturma var, silme yok. Zorunluluk teknik dokümanda kontrol edilecek |
-| T-21 | Yeni dersin tüm ekranlarda görünmesi | Ders Sınav Takibi, Haftalık Kartlar ve filtrede görünmeli | Geçti | |
-| T-22 | Yeni dersin ortalamaya etkisi | Notlu derslerle ağırlıklı ortalama güncellenmeli | Kısmen | Notu olmayan ders ortalamaya girmiyor. Bu kullanıcıya açıkça söylenmeli. Notlu iki derste ortalama 2.50, kredi ağırlığı ayrıca test edilmeli |
-| T-23 | Ağırlık toplamı %100 kontrolü | Toplam %100 değilse uyarı vermeli | Kaldı | %10 + %40 + %20 + %40 = %110 girildi, uyarı çıkmadan kaydedildi |
-| T-24 | Ağırlık türleri | Ağırlık türü seçimi | Bulgu | Türler sabit 5 seçenekten seçiliyor, serbest giriş yok. Gereksinime göre karar verilecek |
-| T-25 | Ders filtresinde çoklu seçim | Birden fazla ders seçilebilmeli (dokümana göre) | Kontrol edilecek | Şu an tek ders ya da tüm dersler seçilebiliyor |
+| No | Test | Tür | Sonuç | Issue | Not |
+|---|---|---|---|---|---|
+| T-01 | Haftalık ders kartları | Zorunlu | Geçti | | |
+| T-02 | Görev işaretleme ve ilerleme güncellemesi | Zorunlu | Geçti | | |
+| T-03 | Hafta filtresi | Zorunlu | Geçti | | |
+| T-04 | Durum filtresi | Zorunlu | Geçti | | |
+| T-05 | Kelime ile arama | Zorunlu | Kaldı | #4 | Görev listesinde arama kutusu yok (7.3, madde 2) |
+| T-06 | Tema değişimi | Zorunlu | Geçti | | |
+| T-07 | Tema kalıcılığı | Zorunlu | Geçti | | |
+| T-08 | Görev durumu kalıcılığı | Zorunlu | Geçti | | |
+| T-09 | Mobil görünüm (375 px) | Zorunlu | Kaldı | #7 | Yatay taşma var (scrollWidth - clientWidth = 207). Taşan öğe üst başlık alanı (.header-right) |
+| T-10 | Kart ve görev ekleme | Zorunlu | Geçti | | |
+| T-11 | Boş form kontrolü | Zorunlu | Geçti | | |
+| T-12 | İlerleme tutarlılığı | Zorunlu | Geçti | | %45 üst bar, gösterge paneli ve görev sayısında aynı |
+| T-13 | Yanlış giriş bilgileri | Ekstra | Geçti | | Yanlış e-postada "kayıtlı öğrenci bulunamadı" mesajı çıkıyor (güvenlik notu) |
+| T-14 | Gösterge paneli ve ders bazlı ilerleme | Zorunlu | Geçti | | BLM301 %75 görevlerle doğrulandı |
+| T-15 | Klavye ile gezinme | Zorunlu | Geçti | | Tab, odak vurgusu ve Enter çalışıyor. Esc ile pencere kapanmıyor (öneri, issue açılmadı) |
+| T-16 | Okunabilirlik (gece ve aydınlık tema) | Zorunlu | Geçti | | Firefox kontrast uyarısı bazı metinlerde çıkıyor, gözle okunabilir |
+| T-17 | İki filtrenin birlikte çalışması | Zorunlu | Geçti | | |
+| T-18 | Kayıt ve veri kalıcılığı | Ekstra | Geçti | | Yeni hesap, not ve görev çıkış-giriş sonrası korunuyor |
+| T-19 | GNO hesabı | Ekstra | Kısmen | | Vize %50 + final %50 ile 75, GNO 2.50 ile tutarlı. Kredi ağırlığı ve harf notu eşlemesi doğrulanmadı |
+| T-20 | Kart ve görev silme | Öneri | Öneri | #5 | Silme seçeneği yok. Dokümanda zorunlu değil |
+| T-21 | Yeni dersin görünürlüğü | Ekstra | Geçti | | Sınav Takibi, Haftalık Kartlar ve filtrede görünüyor |
+| T-22 | Yeni dersin ortalamaya etkisi | Ekstra | Kısmen | #3 | Notu olmayan ders ortalamaya girmiyor, bu kullanıcıya açıkça söylenmeli |
+| T-23 | Ağırlık toplamı %100 kontrolü | Ekstra | Kaldı | #3 | %10 + %40 + %20 + %40 = %110 uyarı çıkmadan kaydedildi. Katkı toplamı 82 iken ağırlıklı not 74.55 |
+| T-24 | Ağırlık türleri | Ekstra | Bulgu | | Türler sabit 5 seçenekten seçiliyor. Issue açılmadı |
+| T-25 | Ders filtresinde çoklu seçim | Öneri | Öneri | #6 | Dokümanda çoklu ders seçimi istenmiyor |
+| T-26 | Devam eden görev filtresi | Zorunlu | Geçti | | Tamamlanmış görevler listeden gizleniyor. Görevi kalmayan kartlar boş kalıyor (öneri) |
+| T-27 | Liste anında güncellenir | Zorunlu | Geçti | | Hafta seçimi ve görev işaretleme sayfa yenilenmeden yansıyor |
+| T-28 | Haftanın öğrenme hedefleri | Zorunlu | Kaldı | Açılacak | Hafta seçildiğinde öğrenme hedefleri hiçbir ekranda görünmüyor (7.1, bölüm 6) |
+| T-29 | Dashboard'dan görev tamamlama | Zorunlu | Geçti | | |
+| T-30 | Form ve kontrol etiketleri | Zorunlu | Kaldı | #8 | Görev onay kutuları (5 adet) ve not arama kutusu etiketsiz (bölüm 8) |
+| T-31 | İkon düğmelerin adları | Zorunlu | Kaldı | #8 | Şifre göster/gizle (2), mobil menü aç ve kapat düğmelerinin adı yok |
+| T-32 | Tablet görünümü (768 px) | Zorunlu | Geçti | | scrollWidth - clientWidth = 0 |
+| T-33 | Temiz ortamda kurulum | Zorunlu | Yapılmadı | | README adımlarıyla sıfırdan kurulum denenecek (bölüm 5, 12) |
 
-## Bulunan Hatalar (Issue Adayları)
-1. T-05: Görev listesinde arama özelliği yok
-2. T-20: Kart ve görev silinemiyor
-3. T-23: Ağırlık toplamı kontrolü yok
-4. T-25: Ders filtresinde çoklu seçim yok (dokümana göre karar verilecek)
-5. T-13: Yanlış e-postada kayıtlı olmadığı bilgisi veriliyor (güvenlik notu)
+## Açık Issue'lar
+- #3 Ağırlık toplamı kontrolü (T-23, T-22)
+- #4 Kelime ile arama yok (T-05)
+- #5 Kart ve görev silme (T-20, öneri)
+- #6 Ders filtresinde çoklu seçim (T-25, öneri)
+- #7 Mobil görünümde yatay taşma (T-09)
+- #8 Erişilebilirlik: etiketsiz alanlar ve düğmeler (T-30, T-31)
+- Açılacak: Öğrenme hedefleri görünmüyor (T-28)
 
-## Açık Kalan Kontroller
-- T-15: Enter ile düğmeler ve Esc ile pencereleri kapatma
-- T-19: GNO hesabının kredi ağırlığı ve harf notu eşlemesi
-- T-22: Kredi ağırlığının iki notlu derste test edilmesi
-- T-20 ve T-25: Teknik dokümanda ilgili maddelerin zorunluluğu
+## Özet
+- Zorunlu maddelerde kalan kesin hatalar: T-05, T-09, T-28, T-30, T-31.
+- Zorunlu olarak kalan kontrol: T-33 (temiz ortamda kurulum).
+- Ekstra özelliklerde hatalar bildirildi, ama zorunlu teslim listesine girmiyor.
