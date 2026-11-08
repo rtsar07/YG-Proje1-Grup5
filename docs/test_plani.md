@@ -48,6 +48,13 @@ Test ortamı: Firefox, `index.html` yerel olarak açıldı, Demo Öğrenci hesab
 | T-31 | İkon düğmelerin adları | Zorunlu | Kaldı | #8 | Şifre göster/gizle (2), mobil menü aç ve kapat düğmelerinin adı yok |
 | T-32 | Tablet görünümü (768 px) | Zorunlu | Geçti | | scrollWidth - clientWidth = 0 |
 | T-33 | Temiz ortamda kurulum | Zorunlu | Yapılmadı | | README adımlarıyla sıfırdan kurulum denenecek (bölüm 5, 12) |
+| T-34 | Ders programına ders ekleme | Ekstra | Geçti | | Ders takvimde görünüyor, yenilemeden sonra da kalıyor |
+| T-35 | Kişisel not ekleme | Ekstra | Geçti | | Not listede görünüyor, kategori doğru |
+| T-36 | Kişisel notlarda arama | Ekstra | Geçti | | Yalnızca eşleşen notlar kalıyor |
+| T-37 | Kişisel not silme | Ekstra | Geçti | | Silinen not yenilemeden sonra da yok |
+| T-38 | Kart ekleme modalı | Ekstra | Geçti | | Kart doğru ders ve haftada görünüyor |
+| T-39 | Çıkış yapma | Ekstra | Geçti | | Giriş ekranına dönüyor, tekrar açınca oturum kapalı |
+| T-40 | Ders filtresi (tek tek) | Ekstra | Geçti | | Her ders için yalnızca o derse ait kartlar görünüyor |
 
 ## Açık Issue'lar
 - #3 Ağırlık toplamı kontrolü (T-23, T-22)
@@ -59,6 +66,8 @@ Test ortamı: Firefox, `index.html` yerel olarak açıldı, Demo Öğrenci hesab
 - Açılacak: Öğrenme hedefleri görünmüyor (T-28)
 
 ## Özet
-- Zorunlu maddelerde kalan kesin hatalar: T-05, T-09, T-28, T-30, T-31.
-- Zorunlu olarak kalan kontrol: T-33 (temiz ortamda kurulum).
-- Ekstra özelliklerde hatalar bildirildi, ama zorunlu teslim listesine girmiyor.
+- Zorunlu maddelerde açık kalan hatalar: T-05 (arama, #4), T-09 (mobil taşma, #7), T-28 (öğrenme hedefleri, issue açılacak), T-30 ve T-31 (erişilebilirlik, #8).
+- Yapılmayan zorunlu kontrol: T-33 (temiz ortamda kurulum).
+- Ekstra özelliklerde bulunan hatalar: T-19 ve T-22 (GNO ve ağırlık, #3), T-23 (ağırlık toplamı, #3). Zorunlu teslim listesine girmiyorlar.
+- Öneriler: T-20 (silme, #5), T-25 (çoklu ders filtresi, #6), T-15'in Esc kısmı.
+- Bu testlerin dışında kalan ekstra özellikler (T-34 ile T-40) geçti.
