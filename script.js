@@ -749,7 +749,7 @@ function renderDashboard() {
     row.className = `task-item-row ${isCompleted ? 'completed' : ''}`;
     row.innerHTML = `
       <div class="task-item-left">
-        <input type="checkbox" class="task-checkbox" ${isCompleted ? 'checked' : ''} onchange="toggleTaskStatus('${task.gorev_id}')">
+        <input type="checkbox" class="task-checkbox" ${isCompleted ? 'checked' : ''} aria-label="${escapeHtml(task.baslik)}" onchange="toggleTaskStatus('${task.gorev_id}')">
         <div class="task-label-info">
           <span class="task-title-text">${escapeHtml(task.baslik)}</span>
           <div class="task-meta-text">
@@ -861,7 +861,7 @@ function renderWeeklyCards() {
               return `
                 <div class="task-item-row ${isChecked ? 'completed' : ''}" style="padding: 0.55rem 0.75rem;">
                   <div class="task-item-left">
-                    <input type="checkbox" class="task-checkbox" ${isChecked ? 'checked' : ''} onchange="toggleTaskStatus('${task.gorev_id}')">
+                    <input type="checkbox" class="task-checkbox" ${isChecked ? 'checked' : ''} aria-label="${escapeHtml(task.baslik)}" onchange="toggleTaskStatus('${task.gorev_id}')">
                     <div class="task-label-info">
                       <span class="task-title-text" style="font-size: 0.82rem;">${escapeHtml(task.baslik)}</span>
                     </div>
