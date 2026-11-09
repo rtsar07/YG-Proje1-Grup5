@@ -87,7 +87,7 @@
             <label for="loginPassword"><i class="fa-solid fa-lock"></i> Şifre</label>
             <div class="password-input-wrap">
               <input type="password" id="loginPassword" placeholder="••••••••" required>
-              <button type="button" class="toggle-password" onclick="togglePasswordVisibility('loginPassword')">
+              <button type="button" class="toggle-password" aria-label="Şifreyi göster/gizle" onclick="togglePasswordVisibility('loginPassword')">
                 <i class="fa-regular fa-eye"></i>
               </button>
             </div>
@@ -126,7 +126,7 @@
             <label for="regPassword"><i class="fa-solid fa-lock"></i> Şifre Belirleyin</label>
             <div class="password-input-wrap">
               <input type="password" id="regPassword" placeholder="En az 6 karakter" minlength="6" required>
-              <button type="button" class="toggle-password" onclick="togglePasswordVisibility('regPassword')">
+              <button type="button" class="toggle-password" aria-label="Şifreyi göster/gizle" onclick="togglePasswordVisibility('regPassword')">
                 <i class="fa-regular fa-eye"></i>
               </button>
             </div>
@@ -153,7 +153,7 @@
           </div>
           <span class="brand-title">EduTrack</span>
         </div>
-        <button class="mobile-close-btn" onclick="toggleSidebar()">
+        <button class="mobile-close-btn" aria-label="Menüyü kapat" onclick="toggleSidebar()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
@@ -219,7 +219,7 @@
       <!-- Üst Header Bar -->
       <header class="app-header">
         <div class="header-left">
-          <button class="menu-toggle-btn" onclick="toggleSidebar()">
+          <button class="menu-toggle-btn" aria-label="Menüyü aç" onclick="toggleSidebar()">
             <i class="fa-solid fa-bars"></i>
           </button>
           <div class="header-breadcrumb">
@@ -558,7 +558,7 @@
           <div class="notes-filter-bar">
             <div class="search-input-wrap">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="text" id="noteSearchInput" placeholder="Not başlığında veya içeriğinde ara..." oninput="renderNotes()">
+              <input type="text" id="noteSearchInput" placeholder="Not başlığında veya içeriğinde ara..." aria-label="Kişisel notlarda ara" oninput="renderNotes()">
             </div>
             <div class="category-tabs" id="noteCategoryTabs">
               <button class="cat-pill active" onclick="filterNotesCategory('ALL')">Tümü</button>
