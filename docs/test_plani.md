@@ -42,10 +42,10 @@ Test ortamı: Firefox, `index.html` yerel olarak açıldı, Demo Öğrenci hesab
 | T-25 | Ders filtresinde çoklu seçim | Öneri | Öneri | #6 | Dokümanda çoklu ders seçimi istenmiyor |
 | T-26 | Devam eden görev filtresi | Zorunlu | Geçti | | Tamamlanmış görevler listeden gizleniyor. Görevi kalmayan kartlar boş kalıyor (öneri) |
 | T-27 | Liste anında güncellenir | Zorunlu | Geçti | | Hafta seçimi ve görev işaretleme sayfa yenilenmeden yansıyor |
-| T-28 | Haftanın öğrenme hedefleri | Zorunlu | Kaldı | Açılacak | Hafta seçildiğinde öğrenme hedefleri hiçbir ekranda görünmüyor (7.1, bölüm 6) |
+| T-28 | Haftanın öğrenme hedefleri | Zorunlu | Kaldı | #9 | Hafta seçildiğinde öğrenme hedefleri hiçbir ekranda görünmüyor (7.1, bölüm 6) |
 | T-29 | Dashboard'dan görev tamamlama | Zorunlu | Geçti | | |
-| T-30 | Form ve kontrol etiketleri | Zorunlu | Kaldı | #8 | Görev onay kutuları (5 adet) ve not arama kutusu etiketsiz (bölüm 8) |
-| T-31 | İkon düğmelerin adları | Zorunlu | Kaldı | #8 | Şifre göster/gizle (2), mobil menü aç ve kapat düğmelerinin adı yok |
+| T-30 | Form ve kontrol etiketleri | Zorunlu | Düzeltildi, PR bekliyor | #8, PR #10 | Görev onay kutuları (5 adet) ve not arama kutusuna aria-label eklendi. Konsol kontrolü boş. Birleştirme sonrası yeniden doğrulanacak |
+| T-31 | İkon düğmelerin adları | Zorunlu | Düzeltildi, PR bekliyor | #8, PR #10 | Şifre göster/gizle (2), mobil menü aç ve kapat düğmelerine aria-label eklendi. Konsol kontrolü boş. Birleştirme sonrası yeniden doğrulanacak |
 | T-32 | Tablet görünümü (768 px) | Zorunlu | Geçti | | scrollWidth - clientWidth = 0 |
 | T-33 | Temiz ortamda kurulum | Zorunlu | Yapılmadı | | README adımlarıyla sıfırdan kurulum denenecek (bölüm 5, 12) |
 | T-34 | Ders programına ders ekleme | Ekstra | Geçti | | Ders takvimde görünüyor, yenilemeden sonra da kalıyor |
@@ -62,11 +62,11 @@ Test ortamı: Firefox, `index.html` yerel olarak açıldı, Demo Öğrenci hesab
 - #5 Kart ve görev silme (T-20, öneri)
 - #6 Ders filtresinde çoklu seçim (T-25, öneri)
 - #7 Mobil görünümde yatay taşma (T-09)
-- #8 Erişilebilirlik: etiketsiz alanlar ve düğmeler (T-30, T-31)
-- Açılacak: Öğrenme hedefleri görünmüyor (T-28)
+- #8 Erişilebilirlik: etiketsiz alanlar ve düğmeler (T-30, T-31), PR #10 birleştirme bekliyor
+- #9 Hafta öğrenme hedefleri görünmüyor (T-28)
 
 ## Özet
-- Zorunlu maddelerde açık kalan hatalar: T-05 (arama, #4), T-09 (mobil taşma, #7), T-28 (öğrenme hedefleri, issue açılacak), T-30 ve T-31 (erişilebilirlik, #8).
+- Zorunlu maddelerde açık kalan hatalar: T-05 (arama, #4), T-09 (mobil taşma, #7), T-28 (öğrenme hedefleri, #9), T-30 ve T-31 (erişilebilirlik, #8) düzeltme PR #10 ile bekliyor.
 - Yapılmayan zorunlu kontrol: T-33 (temiz ortamda kurulum).
 - Ekstra özelliklerde bulunan hatalar: T-19 ve T-22 (GNO ve ağırlık, #3), T-23 (ağırlık toplamı, #3). Zorunlu teslim listesine girmiyorlar.
 - Öneriler: T-20 (silme, #5), T-25 (çoklu ders filtresi, #6), T-15'in Esc kısmı.
