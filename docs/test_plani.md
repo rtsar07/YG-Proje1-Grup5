@@ -23,7 +23,7 @@ Test ortamı: Firefox, `index.html` yerel olarak açıldı, Demo Öğrenci hesab
 | T-06 | Tema değişimi | Zorunlu | Geçti | | |
 | T-07 | Tema kalıcılığı | Zorunlu | Geçti | | |
 | T-08 | Görev durumu kalıcılığı | Zorunlu | Geçti | | |
-| T-09 | Mobil görünüm (375 px) | Zorunlu | Kaldı | #7 | Yatay taşma var (scrollWidth - clientWidth = 207). Taşan öğe üst başlık alanı (.header-right) |
+| T-09 | Mobil görünüm (375 px) | Zorunlu | Düzeltildi, PR bekliyor | #7, PR #11 | 480 px altında kullanıcı adı ve ilerleme rozeti gizlendi. scrollWidth 375, taşan öğe 0. Birleştirme sonrası yeniden doğrulanacak |
 | T-10 | Kart ve görev ekleme | Zorunlu | Geçti | | |
 | T-11 | Boş form kontrolü | Zorunlu | Geçti | | |
 | T-12 | İlerleme tutarlılığı | Zorunlu | Geçti | | %45 üst bar, gösterge paneli ve görev sayısında aynı |
@@ -61,12 +61,12 @@ Test ortamı: Firefox, `index.html` yerel olarak açıldı, Demo Öğrenci hesab
 - #4 Kelime ile arama yok (T-05)
 - #5 Kart ve görev silme (T-20, öneri)
 - #6 Ders filtresinde çoklu seçim (T-25, öneri)
-- #7 Mobil görünümde yatay taşma (T-09)
+- #7 Mobil görünümde yatay taşma (T-09), PR #11 birleştirme bekliyor
 - #8 Erişilebilirlik: etiketsiz alanlar ve düğmeler (T-30, T-31), PR #10 birleştirme bekliyor
 - #9 Hafta öğrenme hedefleri görünmüyor (T-28)
 
 ## Özet
-- Zorunlu maddelerde açık kalan hatalar: T-05 (arama, #4), T-09 (mobil taşma, #7), T-28 (öğrenme hedefleri, #9), T-30 ve T-31 (erişilebilirlik, #8) düzeltme PR #10 ile bekliyor.
+- Zorunlu maddelerde açık kalan hatalar: T-05 (arama, #4), T-28 (öğrenme hedefleri, #9), T-30 ve T-31 (erişilebilirlik, #8) ve T-09 (mobil taşma #7)  düzeltme PR'ları ile birleştirme bekleniyor
 - Yapılmayan zorunlu kontrol: T-33 (temiz ortamda kurulum).
 - Ekstra özelliklerde bulunan hatalar: T-19 ve T-22 (GNO ve ağırlık, #3), T-23 (ağırlık toplamı, #3). Zorunlu teslim listesine girmiyorlar.
 - Öneriler: T-20 (silme, #5), T-25 (çoklu ders filtresi, #6), T-15'in Esc kısmı.
